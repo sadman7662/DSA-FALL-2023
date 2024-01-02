@@ -1,0 +1,431 @@
+1)........................................................
+#include<stdio.h>
+int main(){
+    int arr[]={5,4,6,3};
+    int i,j,count=0,hole,value;
+    for(i=1;i<4;i++){
+        value=arr[i];
+        hole=i;
+        while(hole>0 && arr[hole-1]>value){
+            arr[hole]=arr[hole-1];
+            hole--;
+        }
+                        count++;
+        arr[hole]=value;
+    }
+
+    for(i=0;i<4;i++){
+        printf("%d\t",arr[i]);
+    }
+    printf("\n\n%d",count);
+}
+
+2)..............................................................
+#include<stdio.h>
+
+int powerCalculation(int base,int power){
+   if(power == 0){
+     return 1;
+   }else{
+     return base*powerCalculation(base,power-1);
+   }
+}
+int main(){
+    int n,m,result;
+    printf("Enter the base : ");
+    scanf("%d",&n);
+    printf("Enter the power : ");
+    scanf("%d",&m);
+    printf("\n");
+    result=powerCalculation(n,m);
+    printf("%d",result);
+    printf("\n");
+    return 0;
+}
+
+
+3)..............................................................
+#include<stdio.h>
+
+int fibonacci(int num){
+   if(num<=1){
+     return num;
+   }else{
+     return fibonacci(num-1)+fibonacci(num-2);
+   }
+}
+int main(){
+   int n,result;
+   printf("Enter the number : ");
+   scanf("%d",&n);
+   printf("\n");
+   result = fibonacci(n);
+   printf("%d",result);
+   printf("\n");
+   return 0;
+}
+
+
+4)..............................................................
+#include<stdio.h>
+
+int factorial(int num){
+   if(num == 1){
+     return 1;
+   }else{
+     return num*factorial(num-1);
+   }
+}
+int main(){
+    int n,result;
+    printf("Enter the number : ");
+    scanf("%d",&n);
+    printf("\n");
+    result = factorial(n);
+    printf("%d\n",result);
+    printf("\n");
+    return 0;
+}
+
+
+5)..............................................................
+#include<stdio.h>
+void sorting(int arr[],int size){
+    int i,value,hole;
+    for(i=1;i<size;i++){
+        value=arr[i];
+        hole=i;
+        while(hole>0 && arr[hole-1]>value){
+            arr[hole]=arr[hole-1];
+            hole--;
+        }
+        arr[hole]=value;
+    }
+}
+int main(){
+    int arr[]={2,5,3,10,8};
+    sorting(arr,5);
+    printf("Sorted array is :\n\n ");
+    for(int i=0;i<5;i++){
+    printf("%d\t",arr[i]);
+    }
+    printf("\n\n");
+}
+
+
+6)..............................................................
+#include<stdio.h>
+void printArray(int size,int ar[],int index){
+    if(index>=size){
+        return;
+    }else{
+        printf("%d\t",ar[index]);
+    }
+    printArray(size,ar,index+1);
+}
+int main(){
+    int ar[]={10,20,30,40,50,60,70,80,90,100};
+    int size = 10;
+    printArray(size,ar,0);
+    return 0;
+}
+
+
+7)..............................................................
+#include<stdio.h>
+int main(){
+    int ar[]={10,20,30,40,50,60,70,80,90,100};
+    int i,value,hole,size=10;
+    for(i=1;i<size;i++){
+        value = ar[i];
+        hole=i;
+        while(hole>0 && ar[hole-1]>value){
+            ar[hole]=ar[hole-1];
+            hole--;
+        }
+        ar[hole]=value;
+    }
+    for(i=0;i<size;i++){
+        printf("%d\t",ar[i]);
+    }
+}
+
+8)..............................................................
+#include<stdio.h>
+int binarySearch(int left,int right,int value,int arr[]){
+    int answer;
+    int mid=(left+right)/2;
+    if(arr[mid]==value){
+        return mid;
+    }
+    else if(arr[mid]<value){
+        answer=binarySearch(mid+1,right,value,arr);
+    }else if(arr[mid]>value){
+        answer=binarySearch(left,mid-1,value,arr);
+    }
+    return answer;
+}
+int main(){
+    int arr[]={1,4,6,11,23,66,100},size,value,left,right,ans;
+    size=sizeof(arr)/sizeof(arr[0]);
+    value=100;
+    left=size-size;
+    right=size-1;
+    ans=binarySearch(left,right,value,arr);
+    printf("Item found at index : %d\n",ans);
+    return 0;
+}
+
+9)................................................................
+#include<stdio.h>
+int main(){
+    int arr[]={2,5,4,9,1};n,i,j;
+
+    for(i=0;i<n-1;i++){
+        for(j=0;j<n-1;j++){
+            if(arr[j]>arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+    for(i=0;i<n;i++){
+        printf("%d",arr[i]);
+    }
+    return 0;
+}
+
+10)............................................................
+#include<stdio.h>
+
+int sumOfNaturalNumbers(int n){
+   if(n == 0){
+     return 0;
+   }else {
+     return n + sumOfNaturalNumbers(n - 1);
+   }
+}
+int main(){
+   int result = sumOfNaturalNumbers(4);
+   printf("%d",result);
+   return 0;
+}
+
+11).......................................................
+#include<stdio.h>
+void printArray(int size,int ar[],int index){
+    if(index>=size){
+        return;
+    }else{
+        printf("%d\t",ar[index]);
+    }
+    printArray(size,ar,index+1);
+}
+int main(){
+    int ar[]={10,20,30,40,40};
+    int size = 5;
+    printArray(size,ar,0);
+    return 0;
+}
+
+12)........................................................
+#include<stdio.h>
+int binarySearch(int left,int right,int value,int arr[]){
+    int answer;
+    int mid=(left+right)/2;
+    if(arr[mid]==value){
+        return mid;
+    }
+    if(value>arr[mid]){
+        answer=binarySearch(mid+1,right,value,arr);
+    }else{
+        answer=binarySearch(left,mid-1,value,arr);
+    }
+    return answer;
+}
+int main(){
+    int arr[]={10,20,30,40,50,60,70,80,90,100};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int value = 40;
+    int left = 0;
+    int right = n-1;
+    int answer = binarySearch(left,right,value,arr);
+    printf("%d",answer);
+}
+
+13).......................................................
+#include<stdio.h>
+
+int sumOfNaturalNumbers(int n){
+   if(n==0){
+     return 0;
+   }else {
+     return n+sumOfNaturalNumbers(n-1);
+   }
+}
+int main(){
+   int result=sumOfNaturalNumbers(5);
+   printf("%d",result);
+   return 0;
+}
+
+14)...................................................
+#include<stdio.h>
+
+int main()
+{
+    int n,arr[n];
+    int i,j;
+    printf("Enter the Size of the Array :");
+    scanf("%d",&n);
+    //printf("Enter The Element of the Array :");
+    //scanf("%d",&arr[n]);
+
+    for(i=0;i<n-1;i++){
+        for(j=0;j<n-1;j++){
+            if(arr[j]>arr[j+1]){
+                //swap two number
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+
+    //Print the sorted array
+    printf("The Sorted Array is :\n");
+    for(i=0; i<n;i++){
+        printf("%d\t",arr[i]);
+    }
+    return 0;
+}
+
+15)........................................................
+#include<stdio.h>
+int sumOfNaturalNumber(int n){
+    if(n == 0) {
+      return 0;
+    }
+    else{
+      return n + sumOfNaturalNumber(n-1);
+    }
+}
+int main(){
+    int a,result;
+    scanf("%d",&a);
+    result=sumOfNaturalNumber(a);
+    printf("Result %d\n",result);
+    return 0;
+}
+
+16)..........................................................
+#include<stdio.h>
+int main(){
+    int arr[5]={2,5,3,10,8};
+    int i,j,minIndex;
+    for(i=0;i<5;i++){
+        minIndex=i;
+        for(j=i+1;j<5;j++){
+            if(arr[j]<arr[minIndex]){
+                minIndex=j;
+            }
+        }
+        int temp=arr[i];
+        arr[i]=arr[minIndex];
+        arr[minIndex]=temp;
+    }
+    printf("The sorted array is : \n");
+    for(i=0;i<5;i++){
+        printf("%d\t",arr[i]);
+    }
+    printf("\n\n");
+    return 0;
+}
+
+17)........................................................
+#include<stdio.h>
+
+int factorial(int n){
+   if(n==1){
+     return 1;
+   }else{
+     return n*factorial(n-1);
+   }
+}
+int main(){
+   int result=factorial(4);
+   printf("%d",result);
+   return 0;
+}
+
+18).............................................................
+#include<stdio.h>
+
+int powerCalculation(int base,int power){
+   if(power==0){
+     return 1;
+   }else{
+     return base*powerCalculation(base,power-1);
+   }
+}
+int main(){
+   int result=powerCalculation(2,4);
+   printf("%d",result);
+   return 0;
+}
+
+19).......................................................
+#include<stdio.h>
+void sorting(int arr[],int size){
+    if(size<=1){
+        return;
+    }
+    sorting(arr,size-1);
+    int last=arr[size-1],j=size-2;
+    while(j>=0&&arr[j>last]){
+        arr[j+1]=arr[j];
+        j--;
+    }
+    arr[j+1]=last;
+}
+int main(){
+    int arr[]={2,5,3,20,10,8};
+    sorting(arr,6);
+    for(int i=0;i<6;i++){
+        printf("%d\t",arr[i]);
+    }
+}
+
+20)...................................................
+#include<stdio.h>
+
+int fibonacci(int n){
+   if(n<=1){
+     return n;
+   }else{
+     return fibonacci(n-1)+fibonacci(n-2);
+   }
+}
+int main(){
+   int result=fibonacci(8);
+   printf("%d",result);
+   return 0;
+}
+
+21).........................................................
+#include<stdio.h>
+
+int factorial(int n){
+   if(n==1){
+     return 1;
+   }else{
+     return n*factorial(n-1);
+   }
+}
+int main(){
+   int result=factorial(4);
+   printf("%d",result);
+   return 0;
+}
+
